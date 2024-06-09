@@ -23,6 +23,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -116,9 +118,12 @@ public class MainController implements Initializable {
     }
 
     private void welcome() {
-        StackPane location = new FxmlLoader<WelcomeController, StackPane>(WelcomeController.class)
-                .component();
-        contactBorderPane.setCenter(location);
+        var stackPane = new StackPane();
+        var label = new Label("Welcome to ContactFX!");
+        label.setTextFill(Color.web("#0969da"));
+        label.setFont(Font.font(30));
+        stackPane.getChildren().add(label);
+        contactBorderPane.setCenter(stackPane);
     }
 
     private void contactTableView() {
